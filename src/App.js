@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Map from './components/Map'
 
 class App extends Component {
   render() {
@@ -20,6 +21,8 @@ class App extends Component {
             Learn React
           </a>
         </header>
+        <h1>Google Map API Tester</h1>
+        <Map />
       </div>
     );
   }
