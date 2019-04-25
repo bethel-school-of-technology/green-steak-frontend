@@ -3,6 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+// import Values from './values'
+
+// class App extends Component {
+//     render() {
+//         return (
+//             <div>
+//                 {/* <div>Name: {this.props.name}</div> */}
+//                 <Values />
+//             </div>
+//         );
+//     }
+// }
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
