@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import Values from './Values';
+import Values from './components/Values';
+import Map from './components/Map'
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
             <Values />
           </div>
         </header>
+        <Map />
       </div>
     );
   }
