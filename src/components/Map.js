@@ -7,7 +7,7 @@ class Map extends Component {
      return (
       <LoadScript
         id="script-loader"
-        googleMapsApiKey=""
+        googleMapsApiKey="AIzaSyD0137kFfP4vEoXznF7PLvRUloY3dGSIm4"
       >
         <GoogleMap
           id="map-markers"
