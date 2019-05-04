@@ -1,90 +1,133 @@
 import React, { Component } from 'react'
 import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api'
-
+import logo from '../img/logo.svg';
+import * as api from '../api';
 
 class Map extends Component {
+  state = {
+    values: [],
+    error: false,
+};
+
+componentDidMount() {
+    this.callValues();
+    //console.log('componentDidMount: ', this.state.values);
+}
+
+callValues = () => {
+    api.fetchValues()
+        .then(response => {
+            //console.log('callValues: ', response);
+            this.setState(() => {
+                return {
+                    values: response
+                };
+            });
+            //console.log('after SetState: ', this.state.values);
+        })
+        .catch(err => {
+            //console.log('err', err)
+            this.setState({
+                error: true,
+            })
+        });
+};
+
+
   render() {
+    const { values, error } = this.state;
+    console.log('values', values)
      return (
       <LoadScript
-        id="script-loader"
-        googleMapsApiKey=""
+      id="script-loader"
+      googleMapsApiKey=""
       >
-        <GoogleMap
-          id="map-markers"
-          mapContainerStyle={{
-            height: "400px",
-            width: "800px"
-          }}
-          zoom={10.5}
-          center={{
-            lat: 40.65,
-            lng: -122.3917
-          }}
-          >     
-          <Marker
-            onLoad={marker => {
-              console.log('marker: ', marker)
+        <h1 className="App_Name">Green
+          <img className="Logo_Img" src={logo}></img>Steak
+        </h1>
+          <GoogleMap mapContainerClassName="Map"
+            id="map-markers"
+            mapContainerStyle={{
+              height: "50%",
+              width: "75%",
             }}
-            position={{
-              lat: 40.575581,
-              lng: -122.357737
+            zoom={11}
+            center={{
+              lat: 40.65,
+              lng: -122.391678
             }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log('marker: ', marker)
-            }}
-            position={{
-              lat: 40.581685,
-              lng: -122.389432
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log('marker: ', marker)
-            }}
-            position={{
-              lat: 40.586457,
-              lng: -122.356254
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log('marker: ', marker)
-            }}
-            position={{
-              lat: 40.579811,
-              lng: -122.357479
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log('marker: ', marker)
-            }}
-            position={{
-              lat: 40.738597,
-              lng: -122.238035
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log('marker: ', marker)
-            }}
-            position={{
-              lat: 40.566260,
-              lng: -122.361811
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log('marker: ', marker)
-            }}
-            position={{
-              lat: 40.586133,
-              lng: -122.391871
-            }}
-          />
-        </GoogleMap>
+            >     
+            <Marker
+              onLoad={marker => {
+                console.log('marker: ', marker)
+              }}
+              position={{
+                lat: 40.575581,
+                lng: -122.357737
+              }}
+            />
+            <Marker
+              onLoad={marker => {
+                console.log('marker: ', marker)
+              }}
+              position={{
+                lat: 40.581685,
+                lng: -122.389432
+              }}
+            />
+            <Marker
+              onLoad={marker => {
+                console.log('marker: ', marker)
+              }}
+              position={{
+                lat: 40.586457,
+                lng: -122.356254
+              }}
+            />
+            <Marker
+              onLoad={marker => {
+                console.log('marker: ', marker)
+              }}
+              position={{
+                lat: 40.579811,
+                lng: -122.357479
+              }}
+            />
+            <Marker
+              onLoad={marker => {
+                console.log('marker: ', marker)
+              }}
+              position={{
+                lat: 40.738597,
+                lng: -122.238035
+              }}
+            />
+            <Marker
+              onLoad={marker => {
+                console.log('marker: ', marker)
+              }}
+              position={{
+                lat: 40.566260,
+                lng: -122.361811
+              }}
+            />
+            <Marker
+              onLoad={marker => {
+                console.log('marker: ', marker)
+              }}
+              position={{
+                lat: 40.586133,
+                lng: -122.391871
+              }}
+            />
+          </GoogleMap>
+        
+        <div className="Value">
+            {values && values.length > 0 && 
+                values.map(val =><button onClick="#" key={val._id}>{val.name}</button>)
+            }
+            {error && (<h1>Error!</h1>)}
+        </div>;
       </LoadScript>
     )
   }
