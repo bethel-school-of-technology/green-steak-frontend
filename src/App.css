@@ -244,3 +244,44 @@
   padding-bottom: 2px;
   margin-left: 5px;
 }
+.rate {
+  float: left;          /*Placement of the stars */
+  height: 46px;
+  padding: 0 10px;      /*Padding for the stars*/
+}
+.rate:not(:checked) > input {      /*Radio button visibility*/
+  position:absolute;    
+  top: 100%;
+  clip: rect(0,0,0,0);
+}
+.rate:not(:checked) > label {
+  float:right;          /*Hides labels for stars*/
+  width:1em;            /*Shows labels for stars and 1-5 instead of 5-1*/
+  overflow:hidden;      /*hides labels*/
+  white-space:nowrap;   /*Hides labels*/
+  cursor:pointer;       /*Shows hand as pointer*/
+  font-size:30px;       /*Star size*/
+  color:#ccc;         /*Star color*/
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;       /*Checked star color*/
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;       /*Colors stars on hover*/
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+ .comments {
+    clear: left;
+    padding: 5px;
+}
