@@ -36,7 +36,11 @@ class SignInForm extends Component {
     })
       .then(result =>
         result.text().then(response => {
-          alert(response);
+          var responseData = JSON.parse(response);
+          alert(responseData.message + responseData.user.name + '.');
+          if (responseData.message === "Welcome ") {
+            window.location.href = '#/users/example'
+          }
         })
       )
       .then(info => {
