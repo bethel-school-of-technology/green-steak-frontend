@@ -40,6 +40,9 @@ class SignUp extends Component {
       .then(result => {
         result.text().then(response => {
           alert(response);
+          if (response === 'User registered. Please log in.') {
+            window.location.href = '#/users/sign-in'
+          }
         });
       })
       .then(info => {
