@@ -24,26 +24,23 @@ class SignUp extends Component {
     this.setState({
       [name]: value
     });
-    console.log(this.state);
   }
 
   handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3001/user/register", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify(this.state)
-    })
-      .then(result => {
-        result.text().then(response => {
-          alert(response);
-          if (response === 'User registered. Please log in.') {
-            window.location.href = '#/users/sign-in'
-          }
-        });
+    window
+      .axios("http://localhost:3001/user/register", {
+        method: "POST",
+        data: this.state
+      })
+      .then(response => {
+        var responseData = response.data;
+        localStorage.setItem("JWT", responseData.token);
+        alert(responseData.message + responseData.name + ".");
+        if (responseData.message === "Welcome ") {
+          window.location.href = "#/users/example";
+        }
       })
       .then(info => {
         console.log(info);

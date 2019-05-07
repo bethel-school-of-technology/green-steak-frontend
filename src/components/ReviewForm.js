@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, NavLink, Link } from 'react-router-dom';
+import { HashRouter as Router, NavLink, } from 'react-router-dom';
 import Rating from './rating';
 
 
 class ReviewForm extends Component {
+  logout = e => {
+    e.preventDefault();
+    localStorage.setItem('JWT', null);
+    window.location.href = '#/users/sign-in'  };
   render() {
-
     return (
       <Router path="/users/review">
         <div className="App__Form">
+          <button variant="contained" color="primary" onClick={this.logout}>
+              logout
+          </button>
           <div className="PageSwitcher">
             <NavLink to="/users/example" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">About</NavLink>
             <NavLink exact to="/users/review" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Review</NavLink>
@@ -44,6 +50,5 @@ class ReviewForm extends Component {
     );
   }
 }
-
 
 export default ReviewForm;
