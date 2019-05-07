@@ -23,7 +23,6 @@ class App extends Component {
         <Route exact path="/users/sign-in" component={LandingPageHeader}>
         </Route>
       </div>
-
           <Route path="/users/example" component={SteakhouseInfo}>
           </Route>
           <Route path="/users/review" component={ReviewForm}>
