@@ -48,6 +48,7 @@ class Map extends Component {
 
   render() {
     const { values, error } = this.state;
+<<<<<<< Updated upstream
     console.log("values", values);
     return (
       <LoadScript id="script-loader" googleMapsApiKey="">
@@ -126,6 +127,19 @@ class Map extends Component {
           <Marker
             onLoad={marker => {
               console.log("marker: ", marker);
+=======
+    console.log('values', values)
+     return (
+      <LoadScript
+      id="script-loader"
+      googleMapsApiKey="AIzaSyBf20ITkf4X9rF8iu767N5Nj5c_vaq2WTU"
+      >
+          <GoogleMap mapContainerClassName="Map"
+            id="map-markers"
+            mapContainerStyle={{
+              height: "50%",
+              width: "75%",
+>>>>>>> Stashed changes
             }}
             position={{
               lat: 40.586133,
@@ -134,6 +148,7 @@ class Map extends Component {
           />
         </GoogleMap>
         <div className="Value">
+<<<<<<< Updated upstream
           {values &&
             values.length > 0 &&
             values.map(val => (
@@ -144,6 +159,13 @@ class Map extends Component {
           {error && <h1>Error!</h1>}
         </div>
         ;
+=======
+            {values && values.length > 0 && 
+                values.map(val =><button className="btn" onClick="#" key={val._id}>{val.name}</button>)
+            }
+            {error && (<h1>Error!</h1>)}
+        </div>;
+>>>>>>> Stashed changes
       </LoadScript>
     );
   }
