@@ -27,22 +27,20 @@ class SignInForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    fetch("http://localhost:3001/user/login", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify(this.state)
-    })
-      .then(result =>
-        result.text().then(response => {
-          var responseData = JSON.parse(response);
-          alert(responseData.message + responseData.user.name + '.');
-          if (responseData.message === "Welcome ") {
-            window.location.href = '#/users/example'
-          }
-        })
-      )
+    window
+      .axios("http://localhost:3001/user/login", {
+        method: "POST",
+        data: this.state
+      })
+      .then(response => {
+        console.log(response);
+        var responseData = response.data;
+        localStorage.setItem('JWT', responseData.token);
+        alert(responseData.message + responseData.name + ".");
+        if (responseData.message === "Welcome back ") {
+          window.location.href = "#/users/example";
+        }
+      })
       .then(info => {
         console.log(info);
       });
