@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { HashRouter as Router, NavLink, Link } from 'react-router-dom';
 import Rating from './Rating';
 
-
 class ReviewForm extends Component {
   logout = e => {
     e.preventDefault();
