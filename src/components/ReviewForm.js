@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
 import { HashRouter as Router, NavLink, Link } from 'react-router-dom';
-import Rating from './Rating';
+import Rating from './rating';
 
 class ReviewForm extends Component {
   logout = e => {
@@ -12,7 +12,7 @@ class ReviewForm extends Component {
     return (
       <Router path="/steakhouses/review">
         <div className="App__Form">
-          <div>
+          <div className="LogoutHolder">
             <button className="Logout" variant="contained" color="primary" onClick={this.logout}>
               logout
             </button><br />
