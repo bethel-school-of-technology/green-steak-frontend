@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
-<<<<<<< Updated upstream
-import { HashRouter as Router, NavLink, } from 'react-router-dom';
-import Rating from './rating';
-=======
 import { HashRouter as Router, NavLink, Link } from 'react-router-dom';
 import Rating from './Rating';
->>>>>>> Stashed changes
 
 
 class ReviewForm extends Component {

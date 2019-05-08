@@ -28,12 +28,7 @@ class App extends Component {
           </Switch>
           
       </div>
-<<<<<<< Updated upstream
-          <Route path="/users/example" component={SteakhouseInfo}>
-=======
-
           <Route path="/steakhouses/info" component={SteakhouseInfo}>
->>>>>>> Stashed changes
           </Route>
           <Route path="/steakhouses/review" component={ReviewForm}>
           </Route>
