@@ -12,18 +12,17 @@ class ReviewForm extends Component {
     return (
       <Router path="/steakhouses/review">
         <div className="App__Form">
-          <button variant="contained" color="primary" onClick={this.logout}>
+          <div>
+            <button className="Logout" variant="contained" color="primary" onClick={this.logout}>
               logout
-          </button>
-          <div className="PageSwitcher">
-            <NavLink to="/steakhouses/info" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">About</NavLink>
-            <NavLink exact to="/steakhouses/review" activeClassName="PageSwitcher__Item--Active" className="PageSwitcher__Item">Review</NavLink>
+            </button><br />
           </div>
           <div className="FormTitle">
             <NavLink to="/steakhouses/info" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Find Steak</NavLink> or <NavLink exact to="/steakhouses/review" activeClassName="FormTitle__Link--Active" className="FormTitle__Link">Write A Review</NavLink>
           </div>
 
           <div className="FormCenter">
+            <div id="writeReview">Write a review</div>
             <form onSubmit={this.handleSubmit} className="FormFields" method="POST" action="http://localhost:3000/api/users/review">
               <div className="FormField">
                 <textarea rows={10} cols={50} defaultValue={""} id="comment" className="FormReview" placeholder="How was your experience?" name="comment" />

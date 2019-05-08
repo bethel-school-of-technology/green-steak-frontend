@@ -39,7 +39,7 @@ class SignUp extends Component {
         localStorage.setItem("JWT", responseData.token);
         alert(responseData.message + responseData.name + ".");
         if (responseData.message === "Welcome ") {
-          window.location.href = "#/users/example";
+          window.location.href = "#/steakhouses/info";
         }
       })
       .then(info => {

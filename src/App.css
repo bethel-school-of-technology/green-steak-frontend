@@ -140,6 +140,22 @@
   text-decoration: none;
 }
 
+.Logout {
+    display: flex;
+    float: right;
+    margin-bottom: 5%;
+    background-color: rgba(52, 206, 65, 0.849);
+    color: #ffffff;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: .9em;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+
 .PageSwitcher__Item--Active {
   background-color: rgba(52, 206, 65, 0.849);
   color: white;
@@ -309,8 +325,8 @@
   position: relative;
 
   display: block;
-  margin: 30px auto;
-  padding: 0;
+  margin: 10px auto;
+  padding: 10px;
 
   overflow: hidden;
 
@@ -319,14 +335,14 @@
   border-radius: 2px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
   
-  background-color: #2ecc71;
+  background-color: #ffc700;
   color: #ecf0f1;
   
   transition: background-color .3s;
 }
 
 .btn:hover, .btn:focus {
-  background-color: #27ae60;
+  background-color: #c59b08;
 }
 
 .btn > * {

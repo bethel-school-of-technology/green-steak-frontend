@@ -18,12 +18,14 @@ class App extends Component {
       <div className="App__Aside" >
           <Route path="/" component={Header}>
           </Route>
+          <Switch>
           <Route exact path="/" component={AboutSite}>
           </Route>
-          <Switch>
+          <Route path="/users/" component={AboutSite}>
+          </Route>
           <Route path="/steakhouses/" component={Map}>
           </Route>
-          <Route component={NotFound}>
+          <Route path="*" component={NotFound}>
           </Route>
           </Switch>
           
