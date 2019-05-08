@@ -4,7 +4,7 @@ class Rating extends Component {
     render() {
 
         return (
-            <div>
+            <div className="Star__Rating">
                 Rate Steakhouse Price 1-5 Stars:
         <br />
                 {/* Star Rating is from https://codepen.io/tammykimkim/pen/yegZRw  

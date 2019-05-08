@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { HashRouter as Router, Route, NavLink } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Map from './components/Map';
 import SignUpForm from './components/SignUpForm';
 import SignInForm from './components/SignInForm';
-import LandingPageHeader from './components/LandingPageHeader';
+import Header from './components/Header';
 import SteakhouseInfo from './components/SteakhouseInfo'
 import ReviewForm from './components/ReviewForm';
+import AboutSite from './components/About';
+import NotFound from './components/NotFound'
 
 class App extends Component {
   render() {
@@ -14,19 +16,24 @@ class App extends Component {
   <Router >
     <div className="App">
       <div className="App__Aside" >
-        <Route path="/users/example" component={Map}>
-        </Route>
-        <Route path="/users/review" component={Map}>
-        </Route>
-        <Route exact path="/" component={LandingPageHeader}>
-        </Route>
-        <Route exact path="/users/sign-in" component={LandingPageHeader}>
-        </Route>
+          <Route path="/" component={Header}>
+          </Route>
+          <Switch>
+          <Route exact path="/" component={AboutSite}>
+          </Route>
+          <Route path="/users/sign-in" component={AboutSite}>
+          </Route>
+          <Route path="/steakhouses/" component={Map}>
+          </Route>
+          <Route component={NotFound}>
+          </Route>
+          </Switch>
+          
       </div>
 
-          <Route path="/users/example" component={SteakhouseInfo}>
+          <Route path="/steakhouses/info" component={SteakhouseInfo}>
           </Route>
-          <Route path="/users/review" component={ReviewForm}>
+          <Route path="/steakhouses/review" component={ReviewForm}>
           </Route>
           <Route exact path="/" component={SignUpForm}>
           </Route>
