@@ -30,6 +30,7 @@ class App extends Component {
           </Switch>
           
       </div>
+
           <Route path="/steakhouses/info" component={SteakhouseInfo}>
           </Route>
           <Route path="/steakhouses/review" component={ReviewForm}>
