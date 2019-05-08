@@ -55,13 +55,13 @@ class Map extends Component {
           mapContainerClassName="Map"
           id="map-markers"
           mapContainerStyle={{
-            height: "50%",
+            height: "50vh",
             width: "75%"
           }}
-          zoom={11}
+          zoom={12}
           center={{
-            lat: 40.65,
-            lng: -122.391678
+            lat: 40.586162,
+            lng: -122.371454
           }}
         >
           <Marker

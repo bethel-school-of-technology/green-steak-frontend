@@ -21,11 +21,11 @@ class App extends Component {
           <Switch>
           <Route exact path="/" component={AboutSite}>
           </Route>
-          <Route path="/users/" component={AboutSite}>
+          <Route path="/users/sign-in" component={AboutSite}>
           </Route>
           <Route path="/steakhouses/" component={Map}>
           </Route>
-          <Route path="*" component={NotFound}>
+          <Route component={NotFound}>
           </Route>
           </Switch>
           
