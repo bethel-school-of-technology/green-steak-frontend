@@ -11,7 +11,7 @@ class SteakhouseInfo extends Component {
 
   render() {
     return (
-      <Router path="/users/example">
+      <Router path="/steakhouses/info">
         <div className="App__Form">
           <button
             variant="contained"
@@ -22,7 +22,7 @@ class SteakhouseInfo extends Component {
           </button>
           <div className="PageSwitcher">
             <NavLink
-              to="/users/example"
+              to="/steakhouses/info"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item"
             >
@@ -30,7 +30,7 @@ class SteakhouseInfo extends Component {
             </NavLink>
             <NavLink
               exact
-              to="/users/review"
+              to="/steakhouses/review"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item"
             >
@@ -39,7 +39,7 @@ class SteakhouseInfo extends Component {
           </div>
           <div className="FormTitle">
             <NavLink
-              to="/users/example"
+              to="/steakhouses/info"
               activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"
             >
@@ -48,7 +48,7 @@ class SteakhouseInfo extends Component {
             or{" "}
             <NavLink
               exact
-              to="/users/review"
+              to="/steakhouses/review"
               activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"
             >

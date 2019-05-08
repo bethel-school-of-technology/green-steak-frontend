@@ -36,7 +36,7 @@ class Map extends Component {
             values: response
           };
         });
-        //console.log('after SetState: ', this.state.values);
+       //console.log('after SetState: ', this.state.values);
       })
       .catch(err => {
         //console.log('err', err)
@@ -51,11 +51,6 @@ class Map extends Component {
     console.log("values", values);
     return (
       <LoadScript id="script-loader" googleMapsApiKey="">
-        <h1 className="App_Name">
-          Green
-          <img className="Logo_Img" src={logo} />
-          Steak
-        </h1>
         <GoogleMap
           mapContainerClassName="Map"
           id="map-markers"
@@ -137,7 +132,7 @@ class Map extends Component {
           {values &&
             values.length > 0 &&
             values.map(val => (
-              <button onClick="#" key={val._id}>
+              <button className="btn" onClick="#" key={val._id}>
                 {val.name}
               </button>
             ))}
