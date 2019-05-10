@@ -14,14 +14,16 @@ class Map extends Component {
       .axios("http://localhost:3001/user/ensure", {
         method: "GET",
         headers: {
-        'Authorization': `JWT ${localStorage.getItem('JWT')}`}
-      }).then(isLogged => {
-        console.log(isLogged)
-        if (isLogged.data.loggedIn === false) {
-          alert('Error: Not logged in. Please log in.');
-          window.location.href = '#/users/sign-in'
+          Authorization: `JWT ${localStorage.getItem("JWT")}`
         }
       })
+      .then(isLogged => {
+        console.log(isLogged);
+        if (isLogged.data.loggedIn === false) {
+          alert("Error: Not logged in. Please log in.");
+          window.location.href = "#/users/sign-in";
+        }
+      });
     this.callValues();
     //console.log('componentDidMount: ', this.state.values);
   }
@@ -36,7 +38,7 @@ class Map extends Component {
             values: response
           };
         });
-       //console.log('after SetState: ', this.state.values);
+        //console.log('after SetState: ', this.state.values);
       })
       .catch(err => {
         //console.log('err', err)
@@ -49,6 +51,7 @@ class Map extends Component {
   render() {
     const { values, error } = this.state;
     console.log("values", values);
+
     return (
       <LoadScript id="script-loader" googleMapsApiKey="">
         <GoogleMap
@@ -58,75 +61,16 @@ class Map extends Component {
             height: "50vh",
             width: "75%"
           }}
-          zoom={12}
+          zoom={11}
           center={{
             lat: 40.586162,
             lng: -122.371454
           }}
         >
-          <Marker
-            onLoad={marker => {
-              console.log("marker: ", marker);
-            }}
-            position={{
-              lat: 40.575581,
-              lng: -122.357737
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log("marker: ", marker);
-            }}
-            position={{
-              lat: 40.581685,
-              lng: -122.389432
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log("marker: ", marker);
-            }}
-            position={{
-              lat: 40.586457,
-              lng: -122.356254
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log("marker: ", marker);
-            }}
-            position={{
-              lat: 40.579811,
-              lng: -122.357479
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log("marker: ", marker);
-            }}
-            position={{
-              lat: 40.738597,
-              lng: -122.238035
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log("marker: ", marker);
-            }}
-            position={{
-              lat: 40.56626,
-              lng: -122.361811
-            }}
-          />
-          <Marker
-            onLoad={marker => {
-              console.log("marker: ", marker);
-            }}
-            position={{
-              lat: 40.586133,
-              lng: -122.391871
-            }}
-          />
+          {this.state.values.map(function(item, i) {
+            var coordinates = { lat: parseFloat(item.coordinates.latitude), lng: parseFloat(item.coordinates.longitude) };
+            return <Marker key={i} position={coordinates} />;
+          })}
         </GoogleMap>
         <div className="Value">
           {values &&
