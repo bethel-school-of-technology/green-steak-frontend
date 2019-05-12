@@ -4,10 +4,55 @@ import { HashRouter as Router, NavLink, Link } from 'react-router-dom';
 import Rating from './rating';
 
 class ReviewForm extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      identifier: "5cd31ade921b8c035ae51222" ,
+      //Logan's statehouse used as example until select steakhouse function is complete
+      comment: "",
+      ratePrice: "",
+      rateQuality: "",
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
   logout = e => {
     e.preventDefault();
     localStorage.setItem('JWT', null);
     window.location.href = '#/users/sign-in'  };
+
+    handleChange(e) {
+      let target = e.target;
+      let value = target.value;
+      let name = target.name;
+
+      this.setState({
+        [name]: value
+      });
+    }
+
+  handleSubmit(e) {
+    e.preventDefault();
+
+    window
+    .axios("http://localhost:3001/api/reviews/submit", {
+      method: "POST",
+      data: this.state,
+      headers: {
+        Authorization: `JWT ${localStorage.getItem("JWT")}`
+      }
+    }).then(response => {
+      console.log(response)
+      var responseData = response.data;
+      if (responseData.message) {
+        alert(responseData.message)
+      } else {
+      alert("Error")
+      }
+    })
+  }
+
   render() {
     return (
       <Router path="/steakhouses/review">
@@ -23,17 +68,21 @@ class ReviewForm extends Component {
 
           <div className="FormCenter">
             <div id="writeReview">Write a review</div>
-            <form onSubmit={this.handleSubmit} className="FormFields" method="POST" action="http://localhost:3000/api/users/review">
+            <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
-                <textarea rows={10} cols={50} defaultValue={""} id="comment" className="FormReview" placeholder="How was your experience?" name="comment" />
+                <textarea rows={10} cols={50} defaultValue={""} id="comment" className="FormReview" placeholder="How was your experience?" name="comment" onChange={this.handleChange}/>
               </div>
               <p>
-                <Rating />
+                <Rating 
+                ratePrice={this.state.ratePrice}
+                rateQuality={this.state.rateQuality}
+                handleChange={this.handleChange}
+                />
                 <br />
               </p>
                             
               <div className="FormField">
-                <button /*onClick Logic for POST request*/ className="FormField__Button mr-20">Post</button>
+                <button className="FormField__Button mr-20">Post</button>
               </div>
             </form>
           </div>
@@ -41,6 +90,6 @@ class ReviewForm extends Component {
       </Router>
     );
   }
-}
+};
 
 export default ReviewForm;
