@@ -76,7 +76,7 @@ class Map extends Component {
           {values &&
             values.length > 0 &&
             values.map(val => (
-              <button className="btn" onClick="#" key={val._id}>
+              <button className="btn" onClick={function() {window.location.href = '#/steakhouses/info/' + val._id}} key={val._id}>
                 {val.name}
               </button>
             ))}
