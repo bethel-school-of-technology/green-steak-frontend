@@ -31,9 +31,9 @@ class App extends Component {
           
       </div>
 
-          <Route path="/steakhouses/info" component={SteakhouseInfo}>
+          <Route path="/steakhouses/info/:steakhouse?" component={SteakhouseInfo}>
           </Route>
-          <Route path="/steakhouses/review" component={ReviewForm}>
+          <Route path="/steakhouses/review/:steakhouse?" component={ReviewForm}>
           </Route>
           <Route exact path="/" component={SignUpForm}>
           </Route>

@@ -18,7 +18,7 @@ class SignUp extends Component {
 
   handleChange(e) {
     let target = e.target;
-    let value = target.type === "checkbox" ? target.checked : target.value;
+    let value = target.value;
     let name = target.name;
 
     this.setState({
@@ -90,8 +90,6 @@ class SignUp extends Component {
             <form
               onSubmit={this.handleSubmit}
               className="FormFields"
-              method="POST"
-              action="http://localhost:3001/user/register"
             >
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="name">
@@ -103,7 +101,6 @@ class SignUp extends Component {
                   className="FormField__Input"
                   placeholder="Enter your full name"
                   name="name"
-                  value={this.state.name}
                   onChange={this.handleChange}
                 />
               </div>
@@ -117,7 +114,6 @@ class SignUp extends Component {
                   className="FormField__Input"
                   placeholder="Enter your password"
                   name="password"
-                  value={this.state.password}
                   onChange={this.handleChange}
                 />
               </div>
@@ -131,7 +127,6 @@ class SignUp extends Component {
                   className="FormField__Input"
                   placeholder="Enter your email"
                   name="email"
-                  value={this.state.email}
                   onChange={this.handleChange}
                 />
               </div>
