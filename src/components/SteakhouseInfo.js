@@ -25,7 +25,7 @@ class SteakhouseInfo extends Component {
           </div>
           <div className="FormTitle">
             <NavLink
-              to="/steakhouses/info"
+              to={"/steakhouses/info/" + this.props.match.params.steakhouse}
               activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"
             >
@@ -34,13 +34,14 @@ class SteakhouseInfo extends Component {
             or{" "}
             <NavLink
               exact
-              to="/steakhouses/review"
+              to={"/steakhouses/review/" + this.props.match.params.steakhouse}
               activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"
             >
               Write A Review
             </NavLink>
           </div>
+          <p>{this.props.match.params.steakhouse}</p>
         </div>
       </Router>
     );
