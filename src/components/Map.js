@@ -51,9 +51,8 @@ class Map extends Component {
   render() {
     const { values, error } = this.state;
     console.log("values", values);
-
     return (
-      <LoadScript id="script-loader" googleMapsApiKey="">
+      <LoadScript id="script-loader" googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY} >
         <GoogleMap
           mapContainerClassName="Map"
           id="map-markers"
