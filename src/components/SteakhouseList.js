@@ -1,36 +1,33 @@
 import React, { Component } from "react";
 import * as api from "../api";
-import Map from "./Map"
+import Map from "./Map";
 import SteakhouseInfo from "./SteakhouseInfo";
 import { HashRouter as Router, NavLink, Link } from "react-router-dom";
 
 class SteakhouseList extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
+
     this.state = {
-      selectedSteakhouse: 1
-    }
+      steakhouseList: []
+    };
   }
 
   componentDidMount() {
     this.callValues();
-    //console.log('componentDidMount: ', this.state.values);
-  }
+    }
 
   callValues = () => {
     api
       .fetchValues()
       .then(response => {
-        //console.log('callValues: ', response);
         this.setState(() => {
           return {
             steakhouseList: response
           };
-        }); 
-       //console.log('after SetState: ', this.state.values);
+        });
       })
       .catch(err => {
-        //console.log('err', err)
         this.setState({
           error: true
         });
@@ -38,31 +35,31 @@ class SteakhouseList extends Component {
   };
 
   render() {
-    const {steakhouseList} = this.state;
-    console.log("steakhouseList", steakhouseList);
-    console.log("selectedSteakhouse", this.state)
+    const { steakhouseList, error } = this.state;
     return (
-        <Router path="/steakhouses/info">
-            <div>
-                <Map />
-                <div className="Value">
-                    {steakhouseList &&
-                    steakhouseList.length > 0 &&   
-                    this.state.steakhouseList.map(steakhouse => (
-                            <button 
-                                id="steakhouseInfo"
-                                className="btn"
-                                key={steakhouse._id}
-                                onClick={() =>
-                                    selectedSteakhouse = steakhouse
-                                }
-                            >
-                                {steakhouse.name}
-                            </button>
-                    ))}
-                </div>
-            </div>
-        </Router>
+      <Router path="/steakhouses/info">
+        <div>
+          <Map 
+            steakhouseList={this.state.steakhouseList}
+          />
+          <div className="Value">
+            {steakhouseList &&
+              steakhouseList.length > 0 &&
+              steakhouseList.map(val => (
+                <button
+                  className="btn"
+                  onClick={function() {
+                    window.location.href = "#/steakhouses/info/" + val._id;
+                  }}
+                  key={val._id}
+                >
+                  {val.name}
+                </button>
+              ))}
+            {error && <h1>Error!</h1>}
+          </div>
+        </div>
+      </Router>
     );
   }
 }

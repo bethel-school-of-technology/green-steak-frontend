@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import "./App.css";
-import Map from "./components/Map";
 import SignUpForm from "./components/SignUpForm";
 import SignInForm from "./components/SignInForm";
 import Header from "./components/Header";
@@ -10,6 +9,7 @@ import ReviewForm from "./components/ReviewForm";
 import AboutSite from "./components/About";
 import NotFound from "./components/NotFound";
 import DefaultInfo from "./components/DefaultInfo";
+import SteakhouseList from "./components/SteakhouseList";
 
 class App extends Component {
   render() {
@@ -21,7 +21,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={AboutSite} />
               <Route path="/users/sign-in" component={AboutSite} />
-              <Route path="/steakhouses/" component={Map} />
+              <Route path="/steakhouses/" component={SteakhouseList} />
               <Route component={NotFound} />
             </Switch>
           </div>
