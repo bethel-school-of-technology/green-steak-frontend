@@ -409,3 +409,10 @@
 *, *:before, *:after {
   box-sizing: border-box;
 }
+
+@media screen and (max-width: 700px) {
+  .App, .App__Form, .App_Name, .App__Aside {   
+    flex-direction: column;
+    width: 100%;
+  }
+}
