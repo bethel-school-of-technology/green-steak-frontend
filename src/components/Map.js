@@ -4,10 +4,9 @@ import logo from "../img/logo.svg";
 import * as api from "../api";
 
 class Map extends Component {
-  state = {
-    values: [],
-    error: false
-  };
+  constructor(props) {
+    super(props);
+  }
 
   componentDidMount() {
     window
@@ -24,33 +23,10 @@ class Map extends Component {
           window.location.href = "#/users/sign-in";
         }
       });
-    this.callValues();
-    //console.log('componentDidMount: ', this.state.values);
   }
 
-  callValues = () => {
-    api
-      .fetchValues()
-      .then(response => {
-        //console.log('callValues: ', response);
-        this.setState(() => {
-          return {
-            values: response
-          };
-        });
-        //console.log('after SetState: ', this.state.values);
-      })
-      .catch(err => {
-        //console.log('err', err)
-        this.setState({
-          error: true
-        });
-      });
-  };
 
   render() {
-    const { values, error } = this.state;
-    console.log("values", values);
     return (
       <LoadScript id="script-loader" googleMapsApiKey={process.env.REACT_APP_GOOGLE_API_KEY} >
         <GoogleMap
@@ -66,22 +42,11 @@ class Map extends Component {
             lng: -122.371454
           }}
         >
-          {this.state.values.map(function(item, i) {
+          {this.props.steakhouseList.map(function(item, i) {
             var coordinates = { lat: parseFloat(item.coordinates.latitude), lng: parseFloat(item.coordinates.longitude) };
             return <Marker key={i} position={coordinates} />;
           })}
         </GoogleMap>
-        <div className="Value">
-          {values &&
-            values.length > 0 &&
-            values.map(val => (
-              <button className="btn" onClick={function() {window.location.href = '#/steakhouses/info/' + val._id}} key={val._id}>
-                {val.name}
-              </button>
-            ))}
-          {error && <h1>Error!</h1>}
-        </div>
-        ;
       </LoadScript>
     );
   }
