@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import logo from "../img/logo.svg";
-import * as api from "../api";
+import * as auth from "../auth";
 
 class Map extends Component {
   constructor(props) {
@@ -9,16 +9,10 @@ class Map extends Component {
   }
 
   componentDidMount() {
-    window
-      .axios("http://localhost:3001/user/ensure", {
-        method: "GET",
-        headers: {
-          Authorization: `JWT ${localStorage.getItem("JWT")}`
-        }
-      })
+      auth.auth()
       .then(isLogged => {
         console.log(isLogged);
-        if (isLogged.data.loggedIn === false) {
+        if (isLogged.loggedIn === false) {
           alert("Error: Not logged in. Please log in.");
           window.location.href = "#/users/sign-in";
         }

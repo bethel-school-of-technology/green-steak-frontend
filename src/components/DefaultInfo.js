@@ -19,7 +19,7 @@ class DefaultInfo extends Component {
     
       callReviews = () => {
         api.fetchReviews(this.props.match.params.steakhouse).then(response => {
-          //console.log('callReviews: ', response);
+          console.log('callReviews: ', response);
           this.setState(() => {
             return {
               reviewsList: response.review,
