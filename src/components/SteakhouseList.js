@@ -3,6 +3,7 @@ import * as api from "../api";
 import Map from "./Map";
 import SteakhouseInfo from "./SteakhouseInfo";
 import { HashRouter as Router, NavLink, Link } from "react-router-dom";
+import * as auth from "../auth";
 
 class SteakhouseList extends Component {
   constructor() {
@@ -12,6 +13,17 @@ class SteakhouseList extends Component {
       steakhouseList: []
     };
   }
+
+  componentWillMount() {
+    auth.auth()
+    .then(isLogged => {
+      console.log(isLogged);
+      if (isLogged.loggedIn === false) {
+        alert("Error: Not logged in. Please log in.");
+        window.location.href = "#/users/sign-in";
+      }
+    });
+}
 
   componentDidMount() {
     this.callValues();

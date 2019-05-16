@@ -1,24 +1,11 @@
 import React, { Component } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 import logo from "../img/logo.svg";
-import * as auth from "../auth";
 
 class Map extends Component {
   constructor(props) {
     super(props);
   }
-
-  componentDidMount() {
-      auth.auth()
-      .then(isLogged => {
-        console.log(isLogged);
-        if (isLogged.loggedIn === false) {
-          alert("Error: Not logged in. Please log in.");
-          window.location.href = "#/users/sign-in";
-        }
-      });
-  }
-
 
   render() {
     return (
