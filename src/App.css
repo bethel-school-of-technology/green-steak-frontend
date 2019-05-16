@@ -3,7 +3,6 @@
 
 .App {
   min-height: 100vh;
-  height: 100v;
   display: flex;
   color: white;
   background-color: rgb(52, 206, 65);
@@ -129,6 +128,7 @@
 }
 .App__Form {
   width: 50%;
+  height: 100v;
   background-color: rgb(46, 66, 64);
   padding: 25px 40px;
   overflow: auto;
@@ -343,7 +343,7 @@
     padding: 5px;
 }
 
-.btn {
+.btn, .drpdwn {
   position: relative;
 
   display: block;
@@ -361,6 +361,16 @@
   color: #ecf0f1;
   
   transition: background-color .3s;
+}
+
+.drpdwn {
+  width: 70vw;
+}
+
+.drpdwnArrow {
+  position: relative;
+  left: 80vw;
+  bottom: 35px
 }
 
 .btn:hover, .btn:focus {
@@ -405,14 +415,37 @@
   transition: width .2s ease-out, padding-top .2s ease-out;
 }
 
+.ValueMobile {
+  display: none
+}
+
 /* Styles, not important */
 *, *:before, *:after {
   box-sizing: border-box;
 }
 
 @media screen and (max-width: 700px) {
-  .App, .App__Form, .App_Name, .App__Aside {   
+  .App, .App_Name, .App__Aside {   
     flex-direction: column;
     width: 100%;
+  }
+
+  .App__Form {
+    flex-direction: column;
+    width: 100%;
+    min-height: 90vh
+  }
+
+  .PageSwitcher, .Map, .Value {
+    display: none
+  }
+
+  .FormTitle__Link {
+    display: inline;
+    font-size: 1.3em
+  }
+
+  .ValueMobile {
+    display: unset
   }
 }
