@@ -45,14 +45,23 @@ class SteakhouseInfo extends Component {
       <Router>
         <div className="App__Form">
           <div className="LogoutHolder">
-            <button
-              className="Logout"
-              variant="contained"
-              color="primary"
-              onClick={this.logout}
+          <div className="PageSwitcher">
+            <NavLink
+              exact
+              to="/steakhouses/info"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item-logout"
             >
-              logout
+              Go Back
+            </NavLink>
+            <button
+              onClick={this.logout}
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item-logout"
+            >
+              Logout
             </button>
+          </div>
             <br />
           </div>
           <div className="FormTitle">

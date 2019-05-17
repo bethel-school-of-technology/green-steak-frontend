@@ -8,6 +8,7 @@ import * as auth from "../auth";
 class SteakhouseList extends Component {
   constructor() {
     super();
+    super()
 
     this.state = {
       steakhouseList: []
@@ -50,7 +51,9 @@ class SteakhouseList extends Component {
     return (
       <Router path="/steakhouses/info">
         <div>
-          <Map steakhouseList={this.state.steakhouseList} />
+          <Map 
+            steakhouseList={this.state.steakhouseList}
+          />
           <div className="Value">
             {steakhouseList &&
               steakhouseList.length > 0 &&

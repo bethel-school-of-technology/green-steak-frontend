@@ -52,11 +52,11 @@ class SignInForm extends Component {
             </NavLink>
             <NavLink
               exact
-              to="/"
+              to="/about"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item"
             >
-              Sign Up
+              Our Team
             </NavLink>
           </div>
           <div className="FormTitle">
