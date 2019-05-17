@@ -19,7 +19,7 @@ class ReviewForm extends Component {
   logout = e => {
     e.preventDefault();
     localStorage.setItem('JWT', null);
-    window.location.href = '#/users/sign-in'
+    window.location.href = "#/user/sign-in"
   };
 
   handleChange(e) {
@@ -52,16 +52,25 @@ class ReviewForm extends Component {
       <Router path="/steakhouses/review">
         <div className="App__Form">
           <div className="LogoutHolder">
-            <button
-              className="Logout"
-              variant="contained"
-              color="primary"
-              onClick={this.logout}
+          <NavLink
+              exact
+              to="/steakhouses/info"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item-logout"
             >
-              logout
-            </button>
-            <br />
+              Go Back
+            </NavLink>
+            <span class="seperator"></span>
+            <NavLink
+              onClick={this.logout}
+              to="#"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item-logout"
+            >
+              Logout
+            </NavLink>
           </div>
+          <br />
           <div className="FormTitle">
             <NavLink
               to={"/steakhouses/info/" + this.props.match.params.steakhouse}

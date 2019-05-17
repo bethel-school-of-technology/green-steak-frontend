@@ -45,7 +45,6 @@ class SteakhouseInfo extends Component {
       <Router>
         <div className="App__Form">
           <div className="LogoutHolder">
-          <div className="PageSwitcher">
             <NavLink
               exact
               to="/steakhouses/info"
@@ -54,16 +53,17 @@ class SteakhouseInfo extends Component {
             >
               Go Back
             </NavLink>
-            <button
+            <span class="seperator"></span>
+            <NavLink
               onClick={this.logout}
+              to="#"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item-logout"
             >
               Logout
-            </button>
+            </NavLink>
           </div>
             <br />
-          </div>
           <div className="FormTitle">
             <NavLink
               to={"/steakhouses/info/" + this.props.match.params.steakhouse}

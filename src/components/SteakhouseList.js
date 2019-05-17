@@ -8,7 +8,6 @@ import * as auth from "../auth";
 class SteakhouseList extends Component {
   constructor() {
     super();
-    super()
 
     this.state = {
       steakhouseList: []
@@ -51,9 +50,7 @@ class SteakhouseList extends Component {
     return (
       <Router path="/steakhouses/info">
         <div>
-          <Map 
-            steakhouseList={this.state.steakhouseList}
-          />
+          <Map steakhouseList={this.state.steakhouseList} />
           <div className="Value">
             {steakhouseList &&
               steakhouseList.length > 0 &&
@@ -74,9 +71,11 @@ class SteakhouseList extends Component {
             <select
               className="drpdwn"
               onChange={function(event) {
-                window.location.href = "#/steakhouses/info/" + event.target.value ;
+                window.location.href =
+                  "#/steakhouses/info/" + event.target.value;
               }}
             >
+              <option value="">Select Steakhouse</option>
               {steakhouseList &&
                 steakhouseList.length > 0 &&
                 steakhouseList.map(val => (
@@ -85,7 +84,7 @@ class SteakhouseList extends Component {
                   </option>
                 ))}
             </select>
-             <span className="drpdwnArrow">▼</span>
+            <span className="drpdwnArrow">▼</span>
             {error && <h1>Error!</h1>}
           </div>
         </div>

@@ -100,6 +100,7 @@ class OurTeam extends Component {
             <div>
               <h3>Jessy Rivard</h3>
               <img className="team-photo" src={jessy} />
+              <span>"Green is my favorite color."</span>
             </div>
             <div className="Icons">
               <a href="https://www.facebook.com/jessy.rivard.3">

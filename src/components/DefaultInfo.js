@@ -36,14 +36,14 @@ class DefaultInfo extends Component {
     return (
       <Router path="/steakhouses/info">
         <div className="App__Form">
-          <div className="LogoutHolder">
+          <div className="PageSwitcher">
             <button
-              className="Logout"
+              className="PageSwitcher__Item-logout PageSwitcher__Solo"
               variant="contained"
               color="primary"
               onClick={this.logout}
             >
-              logout
+              Logout
             </button>
             <br />
           </div>

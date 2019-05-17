@@ -6,7 +6,7 @@ class AboutSite extends Component {
       <div className="App_About">
         <p>
           <div className="About_Background_Color">This</div>
-          <div className="About_Background_Color">Website</div>
+          <div className="About_Background_Color">website</div>
           <div className="About_Background_Color">allows</div>
           <div className="About_Background_Color">steak-eating</div>
           <div className="About_Background_Color">enthusiasts</div>

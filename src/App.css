@@ -181,12 +181,11 @@
   outline: none;
   display: inline-block;
   text-decoration: none;
-  margin-left: 2%;
-  margin-right: 2%;
 }
 
 .PageSwitcher__Item-logout:hover {
-  background-color: rgb(52, 206, 65, .5);
+  background-color: rgba(52, 206, 65, 0.849);
+  color: white;
 }
 
 .Logout {
@@ -207,6 +206,10 @@
   margin-bottom: 10%;
 }
 
+.seperator {
+border-left: rgba(52, 206, 65, 0.849) 1px solid !important
+}
+
 .PageSwitcher__Item--Active {
   background-color: rgba(52, 206, 65, 0.849);
   color: white;
@@ -225,6 +228,12 @@
   border-bottom-left-radius: 25px;
 }
 .PageSwitcher__Item-logout:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.PageSwitcher__Solo {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
 }
@@ -402,6 +411,7 @@
 
 .drpdwn {
   width: 70vw;
+  -webkit-appearance: none;
 }
 
 .drpdwnArrow {
@@ -581,7 +591,7 @@ h1.team-h1 {
     min-height: 90vh
   }
 
-  .PageSwitcher, .Map, .Value {
+  .Map, .Value {
     display: none
   }
 
@@ -592,5 +602,9 @@ h1.team-h1 {
 
   .ValueMobile {
     display: unset
+  }
+
+  .rate:not(:checked) > label {
+    font-size: 10vmin;       /*Star size*/
   }
 }
