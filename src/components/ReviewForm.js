@@ -19,7 +19,7 @@ class ReviewForm extends Component {
   logout = e => {
     e.preventDefault();
     localStorage.setItem('JWT', null);
-    window.location.href = "#/user/sign-in"
+    window.location.href = "#/users/sign-in"
   };
 
   handleChange(e) {
