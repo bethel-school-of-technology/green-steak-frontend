@@ -37,9 +37,9 @@ class SignUp extends Component {
       .then(response => {
         var responseData = response.data;
         localStorage.setItem("JWT", responseData.token);
-        alert(responseData.message + responseData.name + ".");
+        this.state(responseData.message + responseData.name + ".");
         if (responseData.message === "Welcome ") {
-          window.location.href = "#/steakhouses/info";
+          Link.href = "#/steakhouses/info";
         }
       })
       .then(info => {
@@ -52,6 +52,7 @@ class SignUp extends Component {
       <Router path="/">
         <div className="App__Form">
           <div className="PageSwitcher">
+          <h2>Click here to continue{this.state}</h2>
             <NavLink
               to="/users/sign-in"
               activeClassName="PageSwitcher__Item--Active"
