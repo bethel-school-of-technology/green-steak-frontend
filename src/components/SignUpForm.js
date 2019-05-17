@@ -53,19 +53,20 @@ class SignUp extends Component {
         <div className="App__Form">
           <div className="PageSwitcher">
             <NavLink
-              to="/users/sign-in"
-              activeClassName="PageSwitcher__Item--Active"
-              className="PageSwitcher__Item"
-            >
-              Sign In
-            </NavLink>
-            <NavLink
               exact
               to="/"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item"
             >
               Sign Up
+            </NavLink>
+            <NavLink
+              exact
+              to="/about"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item"
+            >
+              Our Team
             </NavLink>
           </div>
           <div className="FormTitle">
@@ -87,10 +88,7 @@ class SignUp extends Component {
             </NavLink>
           </div>
           <div className="FormCenter">
-            <form
-              onSubmit={this.handleSubmit}
-              className="FormFields"
-            >
+            <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="name">
                   Full Name

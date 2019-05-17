@@ -54,7 +54,7 @@ class DefaultInfo extends Component {
               className="FormTitle__Link"
             >
               Find Steak
-            </NavLink>{" "}
+            </NavLink>
           </div>
           <div className="Reviews">
             <h2 className="Select_Steakhouse">Recent Reviews</h2>
