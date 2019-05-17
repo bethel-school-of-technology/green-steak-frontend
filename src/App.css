@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto|Rubik+Mono+One&display=swap');
 
 
+
 .App {
   min-height: 100vh;
   display: flex;
@@ -54,6 +55,7 @@
     position: relative;
     font-family: 'Rubik Mono One', sans-serif;
     font-size: 6vmin;
+    -webkit-text-stroke: .1px rgba(46, 66, 64, 0.50);
 }
 
 .Select_Steakhouse {
@@ -94,6 +96,7 @@
   margin: 0 .1em .3em;
   float: left;
   padding: .1em;
+
 }
 
 .Map {
@@ -258,6 +261,8 @@
 }
 
 .FormField {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2em;
   margin-bottom: 40px;
 }
 
@@ -307,8 +312,8 @@
   border: none;
   border-radius: 25px;
   outline: none;
-  padding: 15px 70px;
-  font-size: .8em;
+  padding: 13px 70px;
+  font-size: 1em;
   font-weight: 500;
 }
 
@@ -380,24 +385,19 @@
     padding: 5px;
 }
 
+
 .btn, .drpdwn {
-  position: relative;
-
-  display: block;
-  margin: 10px auto;
-  padding: 10px;
-
-  overflow: hidden;
-
-  border-width: 0;
+  background-color: rgba(46, 66, 61);
+  color: white;
+  border: none;
+  border-radius: 25px;
   outline: none;
-  border-radius: 2px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
-  
-  background-color: #ffc700;
-  color: #ecf0f1;
-  
-  transition: background-color .3s;
+  padding: 13px 25px;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 10px auto;
+  display: block;
+
 }
 
 .drpdwn {
@@ -411,7 +411,7 @@
 }
 
 .btn:hover, .btn:focus {
-  background-color: #c59b08;
+  background-color: #5e5f5e;
 }
 
 .btn > * {
@@ -426,7 +426,7 @@
 .btn:before {
   content: "";
   
-  position: absolute;
+  position: relative;
   top: 50%;
   left: 50%;
   
