@@ -10,7 +10,9 @@ class ReviewForm extends Component {
     this.state = {
       comment: "",
       ratePrice: "",
-      rateQuality: ""
+      rateQuality: "",
+      errorOccured: false,
+      errorMessage: ""
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -34,20 +36,27 @@ class ReviewForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.props.match.params.steakhouse)
-
     api.submitReview(this.state, this.props.match.params.steakhouse)
       .then(response => {
+        if (response.error) {
+          this.setState(() => {
+            return {
+              errorOccured: true,
+              errorMessage: response.error
+            };
+          });
+        } else {
         if (response.message === "review saved") {
           alert(response.message);
           window.location.href = "#/steakhouses/info/" + this.props.match.params.steakhouse
         } else {
           alert(response.message);
-        }
+        }}
       });
   }
 
   render() {
+    if (this.state.errorOccured === true) {throw this.state.errorMessage};
     return (
       <Router path="/steakhouses/review">
         <div className="App__Form">
@@ -81,7 +90,6 @@ class ReviewForm extends Component {
             </NavLink>{" "}
             or{" "}
             <NavLink
-              exact
               to={"/steakhouses/review/" + this.props.match.params.steakhouse}
               activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"

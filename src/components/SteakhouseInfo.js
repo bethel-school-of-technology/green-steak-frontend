@@ -5,7 +5,9 @@ import * as api from "../api";
 class SteakhouseInfo extends Component {
   state = {
     review: [],
-    steakhouse: {}
+    steakhouse: {},
+    errorOccured: false,
+    errorMessage: ""
   };
   logout = e => {
     e.preventDefault();
@@ -28,19 +30,31 @@ class SteakhouseInfo extends Component {
   callReviews = () => {
     api.fetchReviews(this.props.match.params.steakhouse).then(response => {
       //console.log('callReviews: ', response);
+      if (response.error) {
+        this.setState(() => {
+          return {
+            errorOccured: true,
+            errorMessage: response.error
+          };
+        });
+      } if (response.message) {
+        alert(response.message)
+      } else {
       this.setState(() => {
         return {
           reviewsList: response.review,
           steakhouse: response.steakhouse
-        };
-      });
+        }
+      });}
       //console.log('after SetState: ', this.state.reviews);
     });
   };
 
   render() {
+    
     const { reviewsList, steakhouse } = this.state;
     console.log("reviewsList", reviewsList);
+    if (this.state.errorOccured === true) {throw this.state.errorMessage}
     return (
       <Router>
         <div className="App__Form">
@@ -74,7 +88,6 @@ class SteakhouseInfo extends Component {
             </NavLink>{" "}
             or{" "}
             <NavLink
-              exact
               to={"/steakhouses/review/" + this.props.match.params.steakhouse}
               activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"

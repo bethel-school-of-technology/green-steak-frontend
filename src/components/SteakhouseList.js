@@ -10,17 +10,26 @@ class SteakhouseList extends Component {
     super();
 
     this.state = {
-      steakhouseList: []
+      steakhouseList: [],
+      errorOccured: false,
+      errorMessage: ""
     };
   }
 
   componentWillMount() {
-    auth.auth().then(isLogged => {
-      console.log(isLogged);
-      if (isLogged.loggedIn === false) {
+    auth.auth().then(response => {
+      if (response.error) {
+        this.setState(() => {
+          return {
+            errorOccured: true,
+            errorMessage: response.error
+          };
+        });
+      } else {
+      if (response.loggedIn === false) {
         alert("Error: Not logged in. Please log in.");
         window.location.href = "#/users/sign-in";
-      }
+      }}
     });
   }
 
@@ -32,21 +41,25 @@ class SteakhouseList extends Component {
     api
       .fetchValues()
       .then(response => {
+        if (response.error) {
+          this.setState(() => {
+            return {
+              errorOccured: true,
+              errorMessage: response.error
+            };
+          });
+        } else {
         this.setState(() => {
           return {
             steakhouseList: response
           };
-        });
+        });}
       })
-      .catch(err => {
-        this.setState({
-          error: true
-        });
-      });
   };
 
   render() {
     const { steakhouseList, error } = this.state;
+    if (this.state.errorOccured === true) {throw this.state.errorMessage}
     return (
       <Router path="/steakhouses/info">
         <div>
