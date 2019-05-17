@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto|Rubik+Mono+One|Simonetta:900i');
+@import url('https://fonts.googleapis.com/css?family=Roboto|Rubik+Mono+One&display=swap');
 
 
 .App {
@@ -78,12 +78,23 @@
 
 .App_About {
   padding-bottom: .7em;
-  text-align: center;
   margin-left: 8vw;
   margin-right: 8vw;
   position: relative;
-  font-family:  'Simonetta', cursive;
-  font-size: 4vmin;
+  font-family:  'Roboto', sans-serif;
+  font-size: 5vmin;
+  color: whitesmoke;
+}
+
+.About_Background_Color {
+  background-color: whitesmoke;
+  color: rgb(52, 206, 65);
+  font-size: 5.5vmin;
+  line-height: 4.5vmin;
+  font-weight: 700;
+  margin: 0 .1em .3em;
+  float: left;
+  padding: .1em;
 }
 
 .Map {
@@ -160,6 +171,24 @@
   text-decoration: none;
 }
 
+.PageSwitcher__Item-logout {
+  background-color: rgb(52, 206, 65, .3);
+  color: #9fbda8;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: .9em;
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+
+.PageSwitcher__Item-logout:hover {
+  background-color: rgb(52, 206, 65, .5);
+}
+
 .Logout {
     background-color: rgba(52, 206, 65, 0.849);
     color: #ffffff;
@@ -188,6 +217,14 @@
   border-bottom-left-radius: 25px;
 }
 .PageSwitcher__Item:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.PageSwitcher__Item-logout:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.PageSwitcher__Item-logout:last-child {
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
 }
@@ -410,6 +447,114 @@
   box-sizing: border-box;
 }
 
+.FA_ICON {
+  margin: .2em;
+  font-size: 25px;
+  color: rgba(245, 245, 245, 0.5);
+}
+
+.FA_ICON:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+
+h1.team-h1 {
+  margin: auto;
+  position: relative;
+  text-align: center;
+  font-family:   'Rubik Mono One', sans-serif;
+  color: whitesmoke; 
+  border-bottom: 1px solid rgba(245, 245, 245, 0.5); 
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+
+
+.team-member {
+  width: 20%;
+  text-align: center;
+  margin: auto;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.5);
+  padding-bottom: 1em;
+}
+
+
+.team-member span,
+.team-member h3 {
+  max-width: 200px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: -1px;
+}
+
+.team-member h3 {
+  color: whitesmoke;
+  font-family: 'Roboto', sans-serif; 
+  background-color: rgba(52, 206, 65, 0.6);
+  box-shadow: 0px 3px rgba(8, 22, 11, 0.1);
+}
+
+.email {
+  color: rgba(52, 206, 65, 0.6);
+  
+}
+
+.team-member span {
+  display: block;
+  padding: .5em;
+ 
+}
+.team-photo {
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+  transition: 0.1s transform ease-in-out;
+  padding: .5em;
+}
+
+
+.team-photo:hover {
+  transform: scale(0.98);
+  cursor: pointer;
+}
+
+
+/* code for phone layout */
+
+
+@media (max-width:1024px){
+  .team-member {
+    float: none;
+    display: block;
+    margin: 50px auto;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .team-member h3,
+  .team-member span {
+    margin: 15px auto;
+  }
+}
 @media screen and (max-width: 700px) {
   .App, .App__Form, .App_Name, .App__Aside {   
     flex-direction: column;
