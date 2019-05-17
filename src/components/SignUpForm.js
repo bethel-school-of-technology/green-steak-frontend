@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { HashRouter as Router, NavLink, Link } from "react-router-dom";
+import * as auth from "../auth";
 
 class SignUp extends Component {
   constructor() {
@@ -29,17 +30,14 @@ class SignUp extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    window
-      .axios("http://localhost:3001/user/register", {
-        method: "POST",
-        data: this.state
-      })
+    auth
+      .signUp(this.state)
       .then(response => {
-        var responseData = response.data;
-        localStorage.setItem("JWT", responseData.token);
-        this.state(responseData.message + responseData.name + ".");
-        if (responseData.message === "Welcome ") {
+        localStorage.setItem("JWT", response.token);
+        this.state(response.message + response.name + ".");
+        if (response.message === "Welcome ") {
           Link.href = "#/steakhouses/info";
+
         }
       })
       .then(info => {
@@ -54,19 +52,20 @@ class SignUp extends Component {
           <div className="PageSwitcher">
           <h2>Click here to continue{this.state}</h2>
             <NavLink
-              to="/users/sign-in"
-              activeClassName="PageSwitcher__Item--Active"
-              className="PageSwitcher__Item"
-            >
-              Sign In
-            </NavLink>
-            <NavLink
               exact
               to="/"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item"
             >
               Sign Up
+            </NavLink>
+            <NavLink
+              exact
+              to="/about"
+              activeClassName="PageSwitcher__Item--Active"
+              className="PageSwitcher__Item"
+            >
+              Our Team
             </NavLink>
           </div>
           <div className="FormTitle">
@@ -88,10 +87,7 @@ class SignUp extends Component {
             </NavLink>
           </div>
           <div className="FormCenter">
-            <form
-              onSubmit={this.handleSubmit}
-              className="FormFields"
-            >
+            <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="name">
                   Full Name

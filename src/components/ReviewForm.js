@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { HashRouter as Router, NavLink, Link } from "react-router-dom";
 import Rating from "./rating";
+import * as api from "../api"
 
 class ReviewForm extends Component {
   constructor() {
@@ -35,26 +36,13 @@ class ReviewForm extends Component {
     e.preventDefault();
     console.log(this.props.match.params.steakhouse)
 
-    window
-      .axios("http://localhost:3001/api/reviews/submit", {
-        method: "POST",
-        data: {
-          comment: this.state.comment,
-          ratePrice: this.state.ratePrice,
-          rateQuality: this.state.rateQuality,
-          identifier: this.props.match.params.steakhouse
-        },
-        headers: {
-          Authorization: `JWT ${localStorage.getItem("JWT")}`
-        }
-      })
+    api.submitReview(this.state, this.props.match.params.steakhouse)
       .then(response => {
-        console.log(response);
-        var responseData = response.data;
-        if (responseData.message) {
-          alert(responseData.message);
+        if (response.message === "review saved") {
+          alert(response.message);
+          window.location.href = "#/steakhouses/info/" + this.props.match.params.steakhouse
         } else {
-          alert("Error");
+          alert(response.message);
         }
       });
   }

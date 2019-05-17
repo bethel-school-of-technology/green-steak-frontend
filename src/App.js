@@ -10,6 +10,11 @@ import AboutSite from "./components/About";
 import NotFound from "./components/NotFound";
 import DefaultInfo from "./components/DefaultInfo";
 import SteakhouseList from "./components/SteakhouseList";
+import OurTeam from "./components/OurTeam";
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fab } from '@fortawesome/free-brands-svg-icons';
+
+library.add(fab)
 
 class App extends Component {
   render() {
@@ -21,6 +26,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={AboutSite} />
               <Route path="/users/sign-in" component={AboutSite} />
+              <Route exact path="/about" component={AboutSite} />
               <Route path="/steakhouses/" component={SteakhouseList} />
               <Route component={NotFound} />
             </Switch>
@@ -39,6 +45,7 @@ class App extends Component {
           />
           <Route exact path="/" component={SignUpForm} />
           <Route path="/users/sign-in" component={SignInForm} />
+          <Route exact path="/about" component={OurTeam} />
         </div>
       </Router>
     );

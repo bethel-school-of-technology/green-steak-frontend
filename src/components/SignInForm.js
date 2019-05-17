@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { HashRouter as Router, NavLink, Link } from "react-router-dom";
+import * as auth from "../auth";
 
 class SignInForm extends Component {
   constructor() {
@@ -27,23 +28,14 @@ class SignInForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    window
-      .axios("http://localhost:3001/user/login", {
-        method: "POST",
-        data: this.state
-      })
+    auth.signIn(this.state)
       .then(response => {
-        console.log(response);
-        var responseData = response.data;
-        localStorage.setItem('JWT', responseData.token);
-        alert(responseData.message + responseData.name + ".");
-        if (responseData.message === "Welcome back ") {
+        localStorage.setItem('JWT', response.token);
+        alert(response.message + response.name + ".");
+        if (response.message === "Welcome back ") {
           window.location.href = "#/steakhouses/info";
         }
       })
-      .then(info => {
-        console.log(info);
-      });
   }
 
   render() {
@@ -60,11 +52,11 @@ class SignInForm extends Component {
             </NavLink>
             <NavLink
               exact
-              to="/"
+              to="/about"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item"
             >
-              Sign Up
+              Our Team
             </NavLink>
           </div>
           <div className="FormTitle">
