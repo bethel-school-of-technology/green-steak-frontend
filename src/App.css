@@ -423,8 +423,8 @@ border-left: rgba(52, 206, 65, 0.849) 1px solid !important
 
 .drpdwnArrow {
   position: relative;
-  left: 80vw;
-  bottom: 35px
+  left: 78vw;
+  bottom: 42px;
 }
 
 .btn:hover, .btn:focus {

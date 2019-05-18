@@ -42,11 +42,11 @@ class SignUp extends Component {
             };
           });
         } else {
-        localStorage.setItem("JWT", response.token);
-        this.state(response.message + response.name + ".");
-        if (response.message === "Welcome ") {
-          Link.href = "#/steakhouses/info";
-
+          localStorage.setItem("JWT", response.token);
+          this.state(response.message + response.name + ".");
+          if (response.message === "Welcome ") {
+            Link.href = "#/steakhouses/info";
+          }
         }
       })
       .then(info => {
@@ -55,12 +55,13 @@ class SignUp extends Component {
   }
 
   render() {
-    if (this.state.errorOccured === true) {throw this.state.errorMessage}
+    if (this.state.errorOccured === true) {
+      throw this.state.errorMessage;
+    }
     return (
       <Router path="/">
         <div className="App__Form">
           <div className="PageSwitcher">
-          <h2>Click here to continue{this.state}</h2>
             <NavLink
               exact
               to="/"
