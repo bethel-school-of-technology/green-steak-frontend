@@ -99,6 +99,8 @@ class OurTeam extends Component {
             <div>
               <h3>Jessy Rivard</h3>
               <img className="team-photo" src={jessy} alt="Jessy" />
+              <span>"I like the color green."</span>
+
             </div>
             <div className="Icons">
               <a href="https://www.facebook.com/jessy.rivard.3">

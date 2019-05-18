@@ -8,7 +8,9 @@ class SignInForm extends Component {
 
     this.state = {
       email: "",
-      password: ""
+      password: "",
+      errorOccured: false,
+      errorMessage: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -30,15 +32,24 @@ class SignInForm extends Component {
 
     auth.signIn(this.state)
       .then(response => {
+        if (response.error) {
+          this.setState(() => {
+            return {
+              errorOccured: true,
+              errorMessage: response.error
+            };
+          });
+        } else {
         localStorage.setItem('JWT', response.token);
         alert(response.message + response.name + ".");
         if (response.message === "Welcome back ") {
           window.location.href = "#/steakhouses/info";
-        }
+        }}
       })
   }
 
   render() {
+    if (this.state.errorOccured === true) {throw this.state.errorMessage}
     return (
       <Router path="/users/sign-in">
         <div className="App__Form">
