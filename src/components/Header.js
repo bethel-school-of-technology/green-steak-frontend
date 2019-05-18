@@ -5,7 +5,7 @@ class Header extends Component {
     render () {
         return (
             <h1 className="App_Name">Green
-                <img className="Logo_Img" src={logo}></img>
+                <img className="Logo_Img" src={logo} alt="Logo"></img>
                 Steak
             </h1>
         )

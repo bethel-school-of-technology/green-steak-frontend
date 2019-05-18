@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter as Router, NavLink, Link } from "react-router-dom";
+import { HashRouter as Router, NavLink } from "react-router-dom";
 import Rating from "./rating";
 import * as api from "../api"
 

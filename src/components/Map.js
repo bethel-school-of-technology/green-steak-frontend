@@ -1,11 +1,8 @@
 import React, { Component } from "react";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
-import logo from "../img/logo.svg";
 
 class Map extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
   render() {
     return (

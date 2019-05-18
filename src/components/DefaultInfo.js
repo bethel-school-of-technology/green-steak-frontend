@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter as Router, NavLink, Link } from "react-router-dom";
+import { HashRouter as Router, NavLink } from "react-router-dom";
 import * as api from "../api";
 
 class DefaultInfo extends Component {
@@ -31,7 +31,7 @@ class DefaultInfo extends Component {
       };
 
   render() {
-    const { reviewsList, steakhouse } = this.state;
+    const { reviewsList } = this.state;
     console.log("reviewsList", reviewsList);
     return (
       <Router path="/steakhouses/info">
