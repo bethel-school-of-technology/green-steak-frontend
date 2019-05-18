@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import * as api from "../api";
 import Map from "./Map";
-import SteakhouseInfo from "./SteakhouseInfo";
-import { HashRouter as Router, NavLink, Link } from "react-router-dom";
+import { HashRouter as Router } from "react-router-dom";
 import * as auth from "../auth";
 
 class SteakhouseList extends Component {

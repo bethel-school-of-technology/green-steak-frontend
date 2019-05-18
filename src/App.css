@@ -96,7 +96,10 @@
   margin: 0 .1em .3em;
   float: left;
   padding: .1em;
+}
 
+.About_Background_Color:hover {
+  background-color: rgba(46, 66, 64, 0.50);
 }
 
 .Map {
@@ -400,6 +403,10 @@
 
 }
 
+.btn {
+  box-shadow: 0px 2px #060a0638;
+}
+
 .drpdwn {
   width: 70vw;
 }
@@ -446,9 +453,7 @@
 }
 
 .btn:active:before {
-  width: 120%;
-  padding-top: 120%;
-  
+
   transition: width .2s ease-out, padding-top .2s ease-out;
 }
 
@@ -480,6 +485,7 @@ h1.team-h1 {
   font-family:   'Rubik Mono One', sans-serif;
   color: whitesmoke; 
   border-bottom: 1px solid rgba(245, 245, 245, 0.5); 
+  -webkit-text-stroke: .1px rgba(46, 66, 64, 0.50);
 }
 
 .cf:before,

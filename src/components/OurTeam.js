@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { HashRouter as Router, NavLink, Link } from "react-router-dom";
+import { HashRouter as Router, NavLink } from "react-router-dom";
 import micah from "../img/Micah-Sturm.jpg";
 import jessy from "../img/Jessy-Rivard.jpeg";
 import brent from "../img/Brent-Hinsz.jpeg";
@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebookSquare,
   faGithubSquare,
-  faLinked,
   faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -81,7 +80,7 @@ class OurTeam extends Component {
           <div className="team-member">
             <div>
               <h3>Brent Hinsz</h3>
-              <img className="team-photo" src={brent} />
+              <img className="team-photo" src={brent} alt="Brent" />
             </div>
             <span>"I like steak."</span>
             <div className="Icons">
@@ -99,7 +98,7 @@ class OurTeam extends Component {
           <div className="team-member">
             <div>
               <h3>Jessy Rivard</h3>
-              <img className="team-photo" src={jessy} />
+              <img className="team-photo" src={jessy} alt="Jessy" />
             </div>
             <div className="Icons">
               <a href="https://www.facebook.com/jessy.rivard.3">
@@ -115,7 +114,7 @@ class OurTeam extends Component {
           </div>
           <div className="team-member">
             <h3>Micah Sturm</h3>
-            <img className="team-photo" src={micah} />
+            <img className="team-photo" src={micah} alt="Micah"/>
             <span>"Did you notice the fork in the logo can move?"</span>
             <div className="Icons">
               <a href="https://www.facebook.com/micah.sturm.7">
