@@ -13,6 +13,7 @@ import SteakhouseList from "./components/SteakhouseList";
 import OurTeam from "./components/OurTeam";
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
+import ErrorHandler from './components/ErrorHandler';
 
 library.add(fab)
 
@@ -20,6 +21,7 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <ErrorHandler>
         <div className="App">
           <div className="App__Aside">
             <Route path="/" component={Header} />
@@ -47,6 +49,7 @@ class App extends Component {
           <Route path="/users/sign-in" component={SignInForm} />
           <Route exact path="/about" component={OurTeam} />
         </div>
+        </ErrorHandler>
       </Router>
     );
   }

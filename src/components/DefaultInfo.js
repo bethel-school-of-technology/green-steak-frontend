@@ -3,47 +3,59 @@ import { HashRouter as Router, NavLink } from "react-router-dom";
 import * as api from "../api";
 
 class DefaultInfo extends Component {
-    state = {
-        review: [],
-        steakhouse: {}
-      };
-      logout = e => {
-        e.preventDefault();
-        localStorage.setItem("JWT", null);
-        window.location.href = "#/users/sign-in";
-      };
-    
-      componentDidMount() {
-        this.callReviews();
-      }
-    
-      callReviews = () => {
-        api.fetchReviews(this.props.match.params.steakhouse).then(response => {
-          console.log('callReviews: ', response);
-          this.setState(() => {
-            return {
-              reviewsList: response.review,
-              steakhouse: response.steakhouse
-            };
-          });
-          //console.log('after SetState: ', this.state.reviews);
+  state = {
+    review: [],
+    steakhouse: {},
+    errorOccured: false,
+    errorMessage: ""
+  };
+  logout = e => {
+    e.preventDefault();
+    localStorage.setItem("JWT", null);
+    window.location.href = "#/users/sign-in";
+  };
+
+  componentDidMount() {
+    this.callReviews();
+  }
+
+  callReviews = () => {
+    api.fetchReviews(this.props.match.params.steakhouse).then(response => {
+      if (response.error) {
+        this.setState(() => {
+          return {
+            errorOccured: true,
+            errorMessage: response.error
+          };
         });
-      };
+      } if (response.message) {
+        alert(response.message)
+      } else {
+        this.setState(() => {
+          return {
+            reviewsList: response.review,
+            steakhouse: response.steakhouse
+          };
+        });
+      }
+    });
+  };
 
   render() {
     const { reviewsList } = this.state;
     console.log("reviewsList", reviewsList);
+    if (this.state.errorOccured === true) {throw this.state.errorMessage}
     return (
       <Router path="/steakhouses/info">
         <div className="App__Form">
-          <div className="LogoutHolder">
+          <div className="PageSwitcher">
             <button
-              className="Logout"
+              className="PageSwitcher__Item-logout PageSwitcher__Solo"
               variant="contained"
               color="primary"
               onClick={this.logout}
             >
-              logout
+              Logout
             </button>
             <br />
           </div>

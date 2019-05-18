@@ -10,7 +10,8 @@ class SignUp extends Component {
       email: "",
       password: "",
       name: "",
-      hasAgreed: false
+      errorOccured: false,
+      errorMessage: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -33,6 +34,14 @@ class SignUp extends Component {
     auth
       .signUp(this.state)
       .then(response => {
+        if (response.error) {
+          this.setState(() => {
+            return {
+              errorOccured: true,
+              errorMessage: response.error
+            };
+          });
+        } else {
         localStorage.setItem("JWT", response.token);
         this.state(response.message + response.name + ".");
         if (response.message === "Welcome ") {
@@ -46,6 +55,7 @@ class SignUp extends Component {
   }
 
   render() {
+    if (this.state.errorOccured === true) {throw this.state.errorMessage}
     return (
       <Router path="/">
         <div className="App__Form">

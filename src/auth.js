@@ -1,4 +1,5 @@
 var encodedURI = window.encodeURI(process.env.REACT_APP_BACKEND_URL + "user/");
+var errorHandler = require("./errorHandler")
 
 module.exports = {
   auth: function() {
@@ -9,7 +10,8 @@ module.exports = {
       })
       .then(response => {
         return response.data;
-      });
+      })
+      .catch((error) => {return errorHandler.axios(error)})
   },
   signIn: function(formData) {
     return window
@@ -19,7 +21,8 @@ module.exports = {
       })
       .then(response => {
         return response.data;
-      });
+      })
+      .catch((error) => {return errorHandler.axios(error)})
   },
   signUp: function(formData) {
     return window
@@ -29,6 +32,7 @@ module.exports = {
       })
       .then(response => {
         return response.data;
-      });
+      })
+      .catch((error) => {return errorHandler.axios(error)})
   }
 };
