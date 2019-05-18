@@ -11,7 +11,8 @@ class SignUp extends Component {
       password: "",
       name: "",
       errorOccured: false,
-      errorMessage: ""
+      errorMessage: "",
+      response: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -43,15 +44,16 @@ class SignUp extends Component {
           });
         } else {
           localStorage.setItem("JWT", response.token);
-          this.state(response.message + response.name + ".");
+          this.setState(() => {
+            return {
+              response: response.message + response.name + "."
+            }
+          });
           if (response.message === "Welcome ") {
-            Link.href = "#/steakhouses/info";
+            window.location.href = "#/steakhouses/info";
           }
         }
       })
-      .then(info => {
-        console.log(info);
-      });
   }
 
   render() {
@@ -100,6 +102,7 @@ class SignUp extends Component {
           <div className="FormCenter">
             <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
+                <p className="signUpError">{this.state.response}</p>
                 <label className="FormField__Label" htmlFor="name">
                   Full Name
                 </label>

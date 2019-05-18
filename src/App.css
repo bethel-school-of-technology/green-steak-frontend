@@ -532,6 +532,8 @@ h1.team-h1 {
   max-width: 200px;
   font-family: 'Roboto', sans-serif;
   letter-spacing: -1px;
+  border-radius: 5px;
+  padding: 5px 5px
 }
 
 .team-member h3 {
@@ -628,4 +630,10 @@ h1.team-h1 {
   .rate:not(:checked) > label {
     font-size: 10vmin;       /*Star size*/
   }
+}
+
+.signUpError {
+  font-size: 1.8em;
+  font-weight: 500;
+ color: rgb(243, 29, 72)
 }

@@ -10,7 +10,8 @@ class SignInForm extends Component {
       email: "",
       password: "",
       errorOccured: false,
-      errorMessage: ""
+      errorMessage: "",
+      response: ""
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -40,25 +41,30 @@ class SignInForm extends Component {
             };
           });
         } else {
-        localStorage.setItem('JWT', response.token);
-        alert(response.message + response.name + ".");
-        if (response.message === "Welcome back ") {
-          window.location.href = "#/steakhouses/info";
-        }}
+          localStorage.setItem('JWT', response.token);
+          this.setState(() => {
+            return {
+              response: response.message + response.name + "."
+            }
+          });
+            if (response.message === "Welcome back ") {
+              window.location.href = "#/steakhouses/info";
+            }
+          }
       })
   }
 
   render() {
-    if (this.state.errorOccured === true) {throw this.state.errorMessage}
+    if (this.state.errorOccured === true) { throw this.state.errorMessage }
     return (
       <Router path="/users/sign-in">
         <div className="App__Form">
           <div className="PageSwitcher">
+
             <NavLink
               to="/users/sign-in"
               activeClassName="PageSwitcher__Item--Active"
-              className="PageSwitcher__Item"
-            >
+              className="PageSwitcher__Item">
               Sign In
             </NavLink>
             <NavLink
@@ -71,6 +77,7 @@ class SignInForm extends Component {
             </NavLink>
           </div>
           <div className="FormTitle">
+            <p className="signUpError">{this.state.response}</p>
             <NavLink
               to="/users/sign-in"
               activeClassName="FormTitle__Link--Active"
