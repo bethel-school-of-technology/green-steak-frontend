@@ -31,40 +31,41 @@ class SignInForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    auth.signIn(this.state)
-      .then(response => {
-        if (response.error) {
-          this.setState(() => {
-            return {
-              errorOccured: true,
-              errorMessage: response.error
-            };
-          });
-        } else {
-          localStorage.setItem('JWT', response.token);
-          this.setState(() => {
-            return {
-              response: response.message + response.name + "."
-            }
-          });
-            if (response.message === "Welcome back ") {
-              window.location.href = "#/steakhouses/info";
-            }
-          }
-      })
+    auth.signIn(this.state).then(response => {
+      if (response.error) {
+        this.setState(() => {
+          return {
+            errorOccured: true,
+            errorMessage: response.error
+          };
+        });
+      } else {
+        localStorage.setItem("JWT", response.token);
+        if (response.message === "Welcome back ") {
+          window.location.href = "#/steakhouses/info";
+        }
+        this.setState(() => {
+          return {
+            response: response.message + response.name + "."
+          };
+        });
+      }
+    });
   }
 
   render() {
-    if (this.state.errorOccured === true) { throw this.state.errorMessage }
+    if (this.state.errorOccured === true) {
+      throw this.state.errorMessage;
+    }
     return (
-      <Router path="/users/sign-in">
+      <Router path="/sign-in">
         <div className="App__Form">
           <div className="PageSwitcher">
-
             <NavLink
-              to="/users/sign-in"
+              to="/sign-in"
               activeClassName="PageSwitcher__Item--Active"
-              className="PageSwitcher__Item">
+              className="PageSwitcher__Item"
+            >
               Sign In
             </NavLink>
             <NavLink
@@ -77,9 +78,8 @@ class SignInForm extends Component {
             </NavLink>
           </div>
           <div className="FormTitle">
-            <p className="signUpError">{this.state.response}</p>
             <NavLink
-              to="/users/sign-in"
+              to="/sign-in"
               activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"
             >
@@ -96,10 +96,8 @@ class SignInForm extends Component {
             </NavLink>
           </div>
           <div className="FormCenter">
-            <form
-              onSubmit={this.handleSubmit}
-              className="FormFields"
-            >
+            <p className="signUpError">{this.state.response}</p>
+            <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
                 <label className="FormField__Label" htmlFor="email">
                   E-Mail Address
@@ -129,7 +127,9 @@ class SignInForm extends Component {
               </div>
 
               <div className="FormField">
-                <button type="submit" className="FormField__Button mr-20">Sign In</button>{" "}
+                <button type="submit" className="FormField__Button mr-20">
+                  Sign In
+                </button>{" "}
                 <Link to="/" className="FormField__Link">
                   Create an account
                 </Link>

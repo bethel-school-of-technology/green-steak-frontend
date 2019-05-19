@@ -57,11 +57,11 @@ class OurTeam extends Component {
 
   render() {
     return (
-      <Router path="/users/sign-in">
+      <Router path="/sign-in">
         <div className="App__Form">
           <div className="PageSwitcher">
             <NavLink
-              to="/users/sign-in"
+              to="/sign-in"
               activeClassName="PageSwitcher__Item--Active"
               className="PageSwitcher__Item"
             >

@@ -83,7 +83,7 @@ class SignUp extends Component {
           </div>
           <div className="FormTitle">
             <NavLink
-              to="/users/sign-in"
+              to="/sign-in"
               activeClassName="FormTitle__Link--Active"
               className="FormTitle__Link"
             >
@@ -100,9 +100,10 @@ class SignUp extends Component {
             </NavLink>
           </div>
           <div className="FormCenter">
+          <p className="signUpError">{this.state.response}</p>
+
             <form onSubmit={this.handleSubmit} className="FormFields">
               <div className="FormField">
-                <p className="signUpError">{this.state.response}</p>
                 <label className="FormField__Label" htmlFor="name">
                   Full Name
                 </label>
@@ -144,7 +145,7 @@ class SignUp extends Component {
 
               <div className="FormField">
                 <button className="FormField__Button mr-20">Sign Up</button>{" "}
-                <Link to="/users/sign-in" className="FormField__Link">
+                <Link to="/sign-in" className="FormField__Link">
                   I'm already member
                 </Link>
               </div>
