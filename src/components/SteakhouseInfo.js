@@ -12,7 +12,7 @@ class SteakhouseInfo extends Component {
   logout = e => {
     e.preventDefault();
     localStorage.setItem("JWT", null);
-    window.location.href = "#/users/sign-in";
+    window.location.href = "#/sign-in";
   };
 
   componentDidMount() {
@@ -29,7 +29,6 @@ class SteakhouseInfo extends Component {
 
   callReviews = () => {
     api.fetchReviews(this.props.match.params.steakhouse).then(response => {
-      //console.log('callReviews: ', response);
       if (response.error) {
         this.setState(() => {
           return {
@@ -46,7 +45,6 @@ class SteakhouseInfo extends Component {
           steakhouse: response.steakhouse
         }
       });}
-      //console.log('after SetState: ', this.state.reviews);
     });
   };
 
@@ -114,7 +112,7 @@ class SteakhouseInfo extends Component {
                       {reviews.value} Stars
                     </div>
                     <p>
-                      <strong>Written Review: </strong>
+                      {/* <strong>Written Review: </strong> */}
                       "{reviews.comment}"
                     </p>
                   </p>

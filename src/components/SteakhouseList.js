@@ -27,7 +27,7 @@ class SteakhouseList extends Component {
       } else {
       if (response.loggedIn === false) {
         alert("Error: Not logged in. Please log in.");
-        window.location.href = "#/users/sign-in";
+        window.location.href = "#/sign-in";
       }}
     });
   }

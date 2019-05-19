@@ -65,6 +65,21 @@
   font-family: 'Rubik Mono One', sans-serif;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 2em;
+
+}
+
+.Review_Steakhouse_Name {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  font-family: 'Rubik Mono One', sans-serif;
+  text-decoration: none;
+  color: white
+}
+
+.Review_Steakhouse_Name:hover {
+  font-size: 102%;
+  color: rgba(255, 255, 255, 0.88)
 }
 
 .Select_Steakhouse_Reviews {
@@ -635,5 +650,6 @@ h1.team-h1 {
 .signUpError {
   font-size: 1.8em;
   font-weight: 500;
- color: rgb(243, 29, 72)
+  color: rgb(243, 29, 72);
+  font-family: Verdana, Geneva, Tahoma, sans-serif
 }

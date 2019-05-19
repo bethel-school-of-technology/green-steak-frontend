@@ -12,7 +12,7 @@ class DefaultInfo extends Component {
   logout = e => {
     e.preventDefault();
     localStorage.setItem("JWT", null);
-    window.location.href = "#/users/sign-in";
+    window.location.href = "#/sign-in";
   };
 
   componentDidMount() {
@@ -75,6 +75,11 @@ class DefaultInfo extends Component {
               reviewsList.map(reviews => (
                 <p className="Select_Steakhouse_Reviews">
                   <div>
+                    <h4>
+                      <a class="Review_Steakhouse_Name" href={'#/steakhouses/info/' + reviews.identifier._id}>{reviews.identifier.name}</a>
+                    </h4>
+                  </div>
+                  <div>
                     <strong>Quality: </strong>
                     {reviews.quality} Stars
                   </div>
@@ -83,7 +88,7 @@ class DefaultInfo extends Component {
                     {reviews.value} Stars
                   </div>
                   <p>
-                    <strong>Written Review: </strong>"{reviews.comment}"
+                    "{reviews.comment}"
                   </p>
                 </p>
               ))}
