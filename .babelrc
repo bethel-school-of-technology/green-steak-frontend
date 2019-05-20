@@ -3,7 +3,7 @@
     [
       "env",
       {
-        "target": {
+        "targets": {
           "node": "current"
         }
       }
