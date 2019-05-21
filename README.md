@@ -1,3 +1,6 @@
+Green-Steak: Group Project 
+App that allows users to find the highest rated steak house.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
