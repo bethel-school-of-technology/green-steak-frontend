@@ -1,0 +1,655 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto|Rubik+Mono+One&display=swap');
+
+
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  color: white;
+  background-color: rgb(52, 206, 65);
+}
+
+.App__Aside {
+  width: 50%;
+  background-color: rgb(52, 206, 65);
+}
+
+@keyframes ani{
+  0%{
+
+    text-shadow: 0em 0em 0 rgb(211, 255, 139);
+    color: white;
+  }
+  20%{
+    text-shadow: -0.04em 0.04em #665b4460;
+    color:  white;
+  }
+  40%{
+
+    text-shadow: 0.03em -0.03em #66445456;
+    color:  white;
+  }
+  60%{
+    text-shadow: 0.03em 0.03em #62446659;
+    color:  white;
+  }
+  80%{
+    text-shadow: -0.03em -0.03em #66584460;
+    color:  white;
+  }
+  100%{
+    text-shadow: 0 0 rgb(211, 255, 139);
+    color:  white;
+  }
+}
+
+#notFound:hover {
+  animation: ani 5s;
+}
+
+.App_Name {
+    margin: auto;
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: .7em;
+    position: relative;
+    font-family: 'Rubik Mono One', sans-serif;
+    font-size: 6vmin;
+    -webkit-text-stroke: .1px rgba(46, 66, 64, 0.50);
+}
+
+.Select_Steakhouse {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  font-family: 'Rubik Mono One', sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 2em;
+
+}
+
+.Review_Steakhouse_Name {
+  margin: auto;
+  text-align: center;
+  position: relative;
+  font-family: 'Rubik Mono One', sans-serif;
+  text-decoration: none;
+  color: white
+}
+
+.Review_Steakhouse_Name:hover {
+  font-size: 102%;
+  color: rgba(255, 255, 255, 0.88)
+}
+
+.Select_Steakhouse_Reviews {
+  text-align: center;
+  margin: auto;
+  color: rgba(255, 255, 255, 0.9);
+  font-family: 'Roboto', sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 1em;
+  padding-top: 1em;
+}
+
+.App_About {
+  padding-bottom: .7em;
+  margin-left: 8vw;
+  margin-right: 8vw;
+  position: relative;
+  font-family:  'Roboto', sans-serif;
+  font-size: 5vmin;
+  color: whitesmoke;
+}
+
+.About_Background_Color {
+  background-color: whitesmoke;
+  color: rgb(52, 206, 65);
+  font-size: 5.5vmin;
+  line-height: 4.5vmin;
+  font-weight: 700;
+  margin: 0 .1em .3em;
+  float: left;
+  padding: .1em;
+}
+
+.About_Background_Color:hover {
+  background-color: rgba(46, 66, 64, 0.50);
+}
+
+.Map {
+  margin: auto;
+  position: relative;
+  border-radius: 25px;
+  box-shadow:  0px 4px 0 rgba(46, 66, 64, 0.13) , 0px 5px 0 rgba(46, 66, 64, 0.055) ;
+}
+.Value {
+  margin: auto;
+  position: relative;
+  text-align: center;
+}
+@keyframes bounce {
+	0%, 20%, 60%, 100% {
+		-webkit-transform: translateY(0);
+		transform: translateY(0);
+	}
+
+	40% {
+		-webkit-transform: translateY(-8px);
+		transform: translateY(-8px);
+	}
+
+	80% {
+		-webkit-transform: translateY(-5px);
+		transform: translateY(-5px);
+  }
+  100% {
+		-webkit-transform: translateY(0px);
+		transform: translateY(0px);
+	}
+}
+.Logo_Img {
+  width: 1em;
+  height: 1em;
+  padding-left: .2em;
+  padding-right: .2em;
+  padding-top: .3em;
+}
+.Logo_Img:hover {
+  animation: bounce .5s;
+}
+.App__Form {
+  width: 50%;
+  height: 100v;
+  background-color: rgb(46, 66, 64);
+  padding: 25px 40px;
+  overflow: auto;
+}
+
+.Hungry {
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 10%;
+  color: rgb(112, 139, 121);
+  font-family: 'Roboto', sans-serif;
+}
+
+.PageSwitcher {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10%;
+}
+
+.PageSwitcher__Item {
+  background-color: #3e5e48;
+  color: #9fbda8;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: .9em;
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.PageSwitcher__Item-logout {
+  background-color: rgb(52, 206, 65, .3);
+  color: #9fbda8;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: .9em;
+  border: none;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.PageSwitcher__Item-logout:hover {
+  background-color: rgba(52, 206, 65, 0.849);
+  color: white;
+}
+
+.Logout {
+    background-color: rgba(52, 206, 65, 0.849);
+    color: #ffffff;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-size: .9em;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    border-radius: 25px;
+}
+
+.LogoutHolder {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10%;
+}
+
+.seperator {
+border-left: rgba(52, 206, 65, 0.849) 1px solid !important
+}
+
+.PageSwitcher__Item--Active {
+  background-color: rgba(52, 206, 65, 0.849);
+  color: white;
+}
+
+.PageSwitcher__Item:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.PageSwitcher__Item:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.PageSwitcher__Item-logout:first-child {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.PageSwitcher__Item-logout:last-child {
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.PageSwitcher__Solo {
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+
+.FormCenter {
+  margin-bottom: 100px;
+}
+
+.FormTitle {
+  color: rgb(112, 139, 121);
+  font-weight: 300;
+  margin-bottom: 50px;
+}
+
+.FormTitle__Link {
+  color: #44664e;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.7em;
+  margin: 0 10px;
+  padding-bottom: 5px;
+}
+
+.FormTitle__Link:first-child {
+  margin-left: 0;
+}
+
+.FormTitle__Link--Active {
+  color: white;
+  border-bottom: 1px solid rgba(52, 206, 65, 0.849);
+}
+
+.FormField {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 1.2em;
+  margin-bottom: 40px;
+}
+
+.FormField__Label {
+  display: block;
+  text-transform: uppercase;
+  font-size: .9em;
+  color: white;
+}
+.FormField__Input {
+  width: 85%;
+  background-color: transparent;
+  border: none;
+  color: white;
+  outline: none;
+  border-bottom: 1px solid #44664e;
+  font-size: 1em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.FormReview {
+  width: 85%;
+  background-color: rgba(22, 29, 28, 0.726);
+  border-radius: 5px;
+  color: whitesmoke;
+  outline: none;
+  font-size: 1em;
+  font-weight: 300;
+  padding-bottom: 10px;
+  margin-top: 10px;
+}
+
+.Star__Rating   {
+  font-size: 1em;
+  color: whitesmoke;
+}
+
+.FormField__Input::placeholder {
+  color: #c7ffcf6b;
+}
+
+.FormField__Button {
+  background-color: rgba(52, 206, 65, 0.849);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  padding: 13px 70px;
+  font-size: 1em;
+  font-weight: 500;
+}
+
+.FormField__Link {
+  color: #7da389;
+  text-decoration: none;
+  display: inline-block;
+  border-bottom: 1.5px solid rgba(52, 206, 65, 0.5);
+  padding-bottom: 5px;
+}
+
+.FormField__CheckboxLabel {
+  color: #7da389;
+  font-size: .9em;
+}
+
+.FormField__Checkbox {
+  position: relative;
+  top: 1.5px;
+}
+
+.FormField__TermsLink {
+  color: white;
+  border-bottom: 1px solid rgba(52, 206, 65, 0.849);
+  text-decoration: none;
+  display: inline-block;
+  padding-bottom: 2px;
+  margin-left: 5px;
+}
+.rate {
+  float: left;          /*Placement of the stars */
+  height: 46px;
+  padding: 0 10px;      /*Padding for the stars*/
+}
+.rate:not(:checked) > input {      /*Radio button visibility*/
+  position:absolute;    
+  top: 100%;
+  clip: rect(0,0,0,0);
+}
+.rate:not(:checked) > label {
+  float:right;          /*Hides labels for stars*/
+  width:1em;            /*Shows labels for stars and 1-5 instead of 5-1*/
+  overflow:hidden;      /*hides labels*/
+  white-space:nowrap;   /*Hides labels*/
+  cursor:pointer;       /*Shows hand as pointer*/
+  font-size:3vmin;       /*Star size*/
+  color:#ccc;         /*Star color*/
+}
+.rate:not(:checked) > label:before {
+  content: '★ ';
+}
+.rate > input:checked ~ label {
+  color: #ffc700;       /*Checked star color*/
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;       /*Colors stars on hover*/
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+ .comments {
+    clear: left;
+    padding: 5px;
+}
+
+
+.btn, .drpdwn {
+  background-color: rgba(46, 66, 61);
+  color: white;
+  border: none;
+  border-radius: 25px;
+  outline: none;
+  padding: 13px 25px;
+  font-size: 1em;
+  font-weight: 500;
+  margin: 10px auto;
+  display: block;
+
+}
+
+.btn {
+  box-shadow: 0px 2px #060a0638;
+}
+
+.drpdwn {
+  width: 70vw;
+  -webkit-appearance: none;
+}
+
+.drpdwnArrow {
+  position: relative;
+  left: 78vw;
+  bottom: 42px;
+}
+
+.btn:hover, .btn:focus {
+  background-color: #5e5f5e;
+}
+
+.btn > * {
+  position: relative;
+}
+
+.btn span {
+  display: block;
+  padding: 12px 24px;
+}
+
+.btn:before {
+  content: "";
+  
+  position: relative;
+  top: 50%;
+  left: 50%;
+  
+  display: block;
+  width: 0;
+  padding-top: 0;
+    
+  border-radius: 100%;
+  
+  background-color: rgba(236, 240, 241, .3);
+  
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.btn:active:before {
+
+  transition: width .2s ease-out, padding-top .2s ease-out;
+}
+
+.ValueMobile {
+  display: none
+}
+
+/* Styles, not important */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+.FA_ICON {
+  margin: .2em;
+  font-size: 25px;
+  color: rgba(245, 245, 245, 0.5);
+}
+
+.FA_ICON:hover {
+    transform: scale(0.9);
+    cursor: pointer;
+}
+
+
+h1.team-h1 {
+  margin: auto;
+  position: relative;
+  text-align: center;
+  font-family:   'Rubik Mono One', sans-serif;
+  color: whitesmoke; 
+  border-bottom: 1px solid rgba(245, 245, 245, 0.5); 
+  -webkit-text-stroke: .1px rgba(46, 66, 64, 0.50);
+}
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.cf {
+    *zoom: 1;
+}
+
+
+
+.team-member {
+  width: 20%;
+  text-align: center;
+  margin: auto;
+  border-bottom: 1px solid rgba(245, 245, 245, 0.5);
+  padding-bottom: 1em;
+}
+
+
+.team-member span,
+.team-member h3 {
+  max-width: 200px;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: -1px;
+  border-radius: 5px;
+  padding: 5px 5px
+}
+
+.team-member h3 {
+  color: whitesmoke;
+  font-family: 'Roboto', sans-serif; 
+  background-color: rgba(52, 206, 65, 0.6);
+  box-shadow: 0px 3px rgba(8, 22, 11, 0.1);
+}
+
+.email {
+  color: rgba(52, 206, 65, 0.6);
+  
+}
+
+.team-member span {
+  display: block;
+  padding: .5em;
+ 
+}
+.team-photo {
+  border-radius: 50%;
+  text-align: center;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+  transition: 0.1s transform ease-in-out;
+  padding: .5em;
+}
+
+
+.team-photo:hover {
+  transform: scale(0.98);
+  cursor: pointer;
+}
+
+.error {
+    min-height: 100vh;
+    color: white;
+    background-color: rgb(52, 206, 65);
+}
+
+.Error_Message {
+  margin: auto;
+  text-align: center;
+  padding-bottom: .7em;
+  position: relative;
+  font-family: 'Rubik Mono One', sans-serif;
+  font-size: 3vmin;
+}
+
+
+/* code for phone layout */
+
+
+@media (max-width:1024px){
+  .team-member {
+    float: none;
+    display: block;
+    margin: 50px auto;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .team-member h3,
+  .team-member span {
+    margin: 15px auto;
+  }
+}
+@media screen and (max-width: 700px) {
+  .App, .App_Name, .App__Aside {   
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .App__Form {
+    flex-direction: column;
+    width: 100%;
+    min-height: 90vh
+  }
+
+  .Map, .Value {
+    display: none
+  }
+
+  .FormTitle__Link {
+    display: inline;
+    font-size: 1.3em
+  }
+
+  .ValueMobile {
+    display: unset
+  }
+
+  .rate:not(:checked) > label {
+    font-size: 10vmin;       /*Star size*/
+  }
+}
+
+.signUpError {
+  font-size: 1.8em;
+  font-weight: 500;
+  color: rgb(243, 29, 72);
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
